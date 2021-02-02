@@ -6,3 +6,5 @@ useCipherSuitesOrder="true" ciphers="TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_E
 cd /opt/jasperreports-server-cp-7.8.0/java/bin/
 ./keytool -importkeystore -deststorepass samplePassword -destkeypass samplePassword -destkeystore /home/it/zillion.jks -srckeystore /home/it/zillion.p12 -srcstoretype PKCS12 -srcstorepass samplePassword -alias tomcat
 ./keytool -importkeystore -srckeystore /home/it/zillion.jks -destkeystore /home/it/zillion.jks -deststoretype pkcs12
+
+openssl pkcs12 -export -out /home/it/zillion.p12 -in /etc/letsencrypt/live/z238.zillioncorporation.com/fullchain.pem -inkey /etc/letsencrypt/live/z238.zillioncorporation.com/privkey.pem -name tomcat
